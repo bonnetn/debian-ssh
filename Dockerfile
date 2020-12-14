@@ -2,7 +2,7 @@ FROM debian:stretch
 
 RUN apt-get update && apt-get -y install openssh-server sudo
 
-RUN sed -i 's/PermitRootLogin .*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -i 's/PermitRootLogin .*/PermitRootLogin without-password/' /etc/ssh/sshd_config
 RUN mkdir -p /root/.ssh && echo "${SSH_KEY}" > /root/.ssh/authorized_keys
 
 
